@@ -1,26 +1,66 @@
-html,
-body {
-  padding: 0;
+
+.map-container {
+  height: 100vh;
+  width: 100vw;
+}
+
+.marker {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  padding: 0;
+  background-image: url('../public/orange.png');
+  background-size: contain;
+background-repeat: no-repeat;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 5px solid #efb336;
+  cursor: pointer;
+  text-align: center;
+  line-height: 20px;
+  opacity: 0.4;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+
+/* .mapboxgl-popup-content {
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  background-color: #555;
+  border-radius: 6px;
+  padding: 8px;
+} */
+
+/* Marker tweaks */
+.mapboxgl-popup-content {
+  font: 400 15px/22px 'Source Sans Pro', 'Helvetica Neue', sans-serif;
+  padding: 0;
+  width: 180px;
 }
 
-* {
-  box-sizing: border-box;
+.mapboxgl-popup-content h3 {
+  background: #efb336;
+  color: #fff;
+  margin: -10px;
+  padding: 10px;
+  border-radius: 3px 3px 0 0;
+  font-weight: 700;
+  margin-top: -10px;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+.mapboxgl-popup-content h4 {
+  margin-bottom: -5px;
+  margin-top: 18px;
+  padding: 0px;
+  font-weight: 400;
+}
+
+.mapboxgl-popup-content div {
+  padding: 0px;
+}
+
+.mapboxgl-popup-anchor-top > .mapboxgl-popup-content {
+  margin-top: 5px;
+}
+
+.mapboxgl-popup-anchor-top > .mapboxgl-popup-tip {
+  border-bottom-color: #efb336;
 }
