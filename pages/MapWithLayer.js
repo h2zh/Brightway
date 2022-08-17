@@ -25,8 +25,7 @@ const MapWithLayer = (props) => {
         style: "mapbox://styles/mapbox/navigation-night-v1",
         center: [-89.4008, 43.0722], // center map on Chad
         zoom: 11,
-      },
-      []
+      }
     );
 
     
