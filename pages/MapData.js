@@ -26,12 +26,13 @@ const MapData = () => {
 
 
   const filteredValidData = (rawData) => {
+    let name = rawData.name;
     let filteredFeatures = rawData.features.filter(
         (entry) => entry.properties.Removal_Date === null
     );
     let filteredGeojson = {
       type: "FeatureCollection",
-      name: "Foo",
+      name: name,
       crs: {
         type: "name",
         properties: { name: "urn:ogc:def:crs:OGC:1.3:CRS84" },
