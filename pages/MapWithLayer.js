@@ -5,7 +5,7 @@ import React, { useState, useEffect, useRef } from "react";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 // import MapboxDirections from '@mapbox/mapbox-gl-directions';
-// import '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions.css' 
+// import '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions.css'
 
 const MapWithLayer = (props) => {
   const data = [props.data, props.data2];
@@ -13,22 +13,18 @@ const MapWithLayer = (props) => {
   const map = useRef(null);
   // const [crExpression, setCrExpression] = useState(["interpolate", ["linear"], ["zoom"], 11, 1, 16, 7]); // zoom_start, radius_start, zoom_end, radius_end,
 
-
   mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_GL_ACCESS_TOKEN;
 
   useEffect(() => {
     if (map.current) return; // initialize map only once
 
-    map.current = new mapboxgl.Map(
-      {
-        container: mapContainer.current,
-        style: "mapbox://styles/mapbox/navigation-night-v1",
-        center: [-89.4008, 43.0722], // center map on Chad
-        zoom: 11,
-      }
-    );
+    map.current = new mapboxgl.Map({
+      container: mapContainer.current,
+      style: "mapbox://styles/mapbox/navigation-night-v1",
+      center: [-89.4008, 43.0722], // center map on Chad
+      zoom: 11,
+    });
 
-    
     // Create a popup, but don't add it to the map yet.
     const popup = new mapboxgl.Popup({
       //closeButton: false,
@@ -120,21 +116,39 @@ const MapWithLayer = (props) => {
     // Add navigation control (the +/- zoom buttons)
     map.current.addControl(new mapboxgl.NavigationControl(), "top-right");
   }, []);
-  
+
   const routefinder = () => {
     map.current.addControl(
       new MapboxDirections({
-        accessToken: mapboxgl.accessToken
+        accessToken: mapboxgl.accessToken,
       }),
       "top-left"
     );
-    map.current.setPaintProperty("cityMaintainedLayer", "circle-radius", ["interpolate", ["linear"], ["zoom"], 11, 1, 16, 13])
-    map.current.setPaintProperty("utilityMaintainedLayer", "circle-radius", ["interpolate", ["linear"], ["zoom"], 11, 1, 16, 13])
-  }
+    map.current.setPaintProperty("cityMaintainedLayer", "circle-radius", [
+      "interpolate",
+      ["linear"],
+      ["zoom"],
+      11,
+      1,
+      16,
+      13,
+    ]);
+    map.current.setPaintProperty("utilityMaintainedLayer", "circle-radius", [
+      "interpolate",
+      ["linear"],
+      ["zoom"],
+      11,
+      1,
+      16,
+      13,
+    ]);
+  };
 
   return (
     <main>
-      <button id='launchRoutefinder' onClick={routefinder}>Find a <p>Brightway</p></button>
+      <button id="launchRoutefinder" onClick={routefinder}>
+        Find a <p>Brightway</p>
+      </button>
       <div className="map-container" ref={mapContainer} />
     </main>
   );

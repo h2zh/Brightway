@@ -1,6 +1,9 @@
 .map-container {
-  height: 100vh;
+  position: absolute;
+  top: -8px;
+  left: -8px;
   width: 100vw;
+  height: 100vh;
 }
 
 .marker {
@@ -64,7 +67,7 @@
 }
 
 #launchRoutefinder p {
-  display:inline;
+  display: inline;
   color: #efb336;
 }
 
